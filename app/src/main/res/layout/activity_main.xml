@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/main_actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/black">
+        <TextView
+            android:id="@+id/main_actionBar_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="CoC 7th角色卡管理"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/main_actionBar_iv_about"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_help"
+            android:onClick="onClick"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/main_character_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_actionBar">
+    </ListView>
+
+    <ImageButton
+        android:id="@+id/main_btn_new"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClick"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/main_btn_new"
+        android:src="@drawable/ic_add"/>
+
+</RelativeLayout>

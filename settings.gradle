@@ -1,0 +1,2 @@
+rootProject.name = "CoCPlayerCharacterManager"
+include ':app'

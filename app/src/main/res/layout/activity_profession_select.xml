@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <RelativeLayout
+        android:id="@+id/profession_select_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/profession_actionbar_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="职业选择"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/profession_actionbar_iv_cancel"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:onClick="onClick"
+            android:src="@drawable/ic_arrow_back" />
+        <ImageView
+            android:id="@+id/profession_actionbar_iv_random"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_dice"
+            android:layout_alignParentRight="true"
+            app:tint="@color/white" />
+
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/profession_select_lv"
+        android:layout_below="@+id/profession_select_actionbar"
+        android:layout_width="match_parent"
+        android:dividerHeight="2dp"
+        android:divider="@color/black"
+        android:layout_height="match_parent"/>
+
+
+
+</RelativeLayout>

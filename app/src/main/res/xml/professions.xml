@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <profession>
+        <pId></pId>
+        <pName></pName>
+        <minCredit></minCredit>
+        <maxCredit></maxCredit>
+        <skillPointAlgorithm></skillPointAlgorithm>
+        <majorSkills></majorSkills>
+        <majorSkill1></majorSkill1>
+        <majorSkill2></majorSkill2>
+        <majorSkill3></majorSkill3>
+        <majorSkill4></majorSkill4>
+        <majorSkill5></majorSkill5>
+        <majorSkill6></majorSkill6>
+        <majorSkill7></majorSkill7>
+        <majorSkill8></majorSkill8>
+    </profession>
+    <profession>
+        <pId></pId>
+        <pName></pName>
+        <minCredit></minCredit>
+        <maxCredit></maxCredit>
+        <skillPointAlgorithm></skillPointAlgorithm>
+        <majorSkills></majorSkills>
+        <majorSkill1></majorSkill1>
+        <majorSkill2></majorSkill2>
+        <majorSkill3></majorSkill3>
+        <majorSkill4></majorSkill4>
+        <majorSkill5></majorSkill5>
+        <majorSkill6></majorSkill6>
+        <majorSkill7></majorSkill7>
+        <majorSkill8></majorSkill8>
+    </profession>
+</resources>

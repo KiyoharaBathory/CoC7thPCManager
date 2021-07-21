@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/frag_skills_title_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/frag_skills_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="职业名"
+        android:textStyle="bold"
+        android:textColor="@color/btn"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/frag_skills_majors_hint_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="此处应有本职技能说明" />
+
+    <TextView
+        android:id="@+id/frag_skills_selected_skill_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/btn"
+        android:text="已选定:博物学"
+        android:textStyle="bold"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:id="@+id/frag_skills_ll1"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="20dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/frag_skills_skill_point_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:text="剩余本职点:220，此技能:70"
+            android:textColor="@color/btn"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/frag_skills_skill_point_allocate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="修改" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frag_skills_ll2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/frag_skills_interest_point_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:text="剩余兴趣点:150，此技能:10"
+            android:textColor="@color/btn"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/frag_skills_interest_point_allocate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="修改" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frag_skills_ll3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/frag_skills_growth_point_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:text="当前成长值:0，总值:90"
+            android:textColor="@color/btn"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/frag_skills_grow_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="技能成长" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/frag_skills_customize_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="修改技能专攻(仅影响当前角色)"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/frag_skills_grow_btn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/frag_skills_hide_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_arrow_up"
+        app:tint="@color/btn" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/btn" />
+
+    <ListView
+        android:id="@+id/frag_skills_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

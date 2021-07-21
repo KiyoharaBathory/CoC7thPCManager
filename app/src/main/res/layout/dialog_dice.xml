@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="输入骰子面数，然后按按钮"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/dialog_dice_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="10dp"
+        android:digits="0123456789"
+        android:gravity="center"
+        android:hint="输入骰子的面数"
+        android:inputType="number"
+        android:text="100"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dialog_dice_result_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="本次掷骰的结果是："
+        android:textSize="16sp" />
+
+    <com.robinhood.ticker.TickerView
+        android:id="@+id/dialog_dice_ticker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="64sp"
+        app:ticker_defaultPreferredScrollingDirection="down" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="40dp"
+        android:background="@color/btn" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/dialog_dice_history_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最近五次掷骰记录"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.robinhood.ticker.TickerView
+            android:id="@+id/dialog_dice_history1"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#FF000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/dialog_dice_history2"
+            app:layout_constraintTop_toBottomOf="@id/dialog_dice_history_hint"
+            app:ticker_defaultPreferredScrollingDirection="down" />
+
+        <com.robinhood.ticker.TickerView
+            android:id="@+id/dialog_dice_history2"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#DD000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/dialog_dice_history1"
+            app:layout_constraintRight_toLeftOf="@id/dialog_dice_history3"
+            app:layout_constraintTop_toBottomOf="@id/dialog_dice_history_hint"
+            app:ticker_defaultPreferredScrollingDirection="down" />
+
+        <com.robinhood.ticker.TickerView
+            android:id="@+id/dialog_dice_history3"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#BB000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/dialog_dice_history2"
+            app:layout_constraintRight_toLeftOf="@id/dialog_dice_history4"
+            app:layout_constraintTop_toBottomOf="@id/dialog_dice_history_hint"
+            app:ticker_defaultPreferredScrollingDirection="down" />
+
+        <com.robinhood.ticker.TickerView
+            android:id="@+id/dialog_dice_history4"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#99000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/dialog_dice_history3"
+            app:layout_constraintRight_toLeftOf="@id/dialog_dice_history5"
+            app:layout_constraintTop_toBottomOf="@id/dialog_dice_history_hint"
+            app:ticker_defaultPreferredScrollingDirection="down" />
+
+        <com.robinhood.ticker.TickerView
+            android:id="@+id/dialog_dice_history5"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#77000000"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/dialog_dice_history4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialog_dice_history_hint"
+            app:ticker_defaultPreferredScrollingDirection="down" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/dialog_dice_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:gravity="center_horizontal"
+        android:text="在骰子面数有问题时，此处应有提示"
+        android:textColor="#F08080"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/dialog_dice_roll"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/btn_rect_outlined"
+        android:src="@drawable/ic_dice"
+        app:tint="@color/btn" />
+
+</LinearLayout>

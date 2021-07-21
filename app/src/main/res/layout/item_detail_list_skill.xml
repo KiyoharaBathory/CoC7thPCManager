@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/item_detail_list_background"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="5dp">
+
+    <TextView
+        android:id="@+id/item_detail_list_skill_name"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical"
+        android:text="博物学"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/item_detail_list_skill_basic_point"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="基础:10"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/item_detail_list_skill_profession_point"
+        app:layout_constraintRight_toLeftOf="@id/item_detail_list_skill_interest_point"
+        app:layout_constraintLeft_toRightOf="@id/item_detail_list_skill_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_detail_list_skill_profession_point"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="职业:0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_detail_list_skill_interest_point"
+        app:layout_constraintLeft_toRightOf="@id/item_detail_list_skill_name"
+        app:layout_constraintTop_toBottomOf="@id/item_detail_list_skill_basic_point" />
+
+    <TextView
+        android:id="@+id/item_detail_list_skill_interest_point"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="兴趣:0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/item_detail_list_growth_point"
+        app:layout_constraintRight_toLeftOf="@id/item_detail_list_skill_final_point"
+        app:layout_constraintLeft_toRightOf="@id/item_detail_list_skill_basic_point"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_detail_list_growth_point"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="成长:0"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/item_detail_list_skill_final_point"
+        app:layout_constraintLeft_toRightOf="@id/item_detail_list_skill_basic_point"
+        app:layout_constraintTop_toBottomOf="@id/item_detail_list_skill_interest_point" />
+
+    <TextView
+        android:id="@+id/item_detail_list_skill_final_point"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="5dp"
+        android:gravity="right|center_vertical"
+        android:text="80/40/16"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

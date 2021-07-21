@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateActivity">
+
+    <RelativeLayout
+        android:id="@+id/create_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/create_actionbar_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="创建调查员"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/create_actionbar_iv_cancel"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:onClick="onClick"
+            android:src="@drawable/ic_arrow_back" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/create_actionbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="10dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/create_iv_portrait"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                app:placeholderImage="@drawable/ic_baseline_portrait_24"
+                app:placeholderImageScaleType="fitCenter"
+                app:actualImageScaleType="fitCenter"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_portrait"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="点击头像更换"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_iv_portrait"
+                app:layout_constraintRight_toRightOf="@+id/create_iv_portrait"
+                app:layout_constraintTop_toBottomOf="@+id/create_iv_portrait" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名:"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/create_edit_name"
+                app:layout_constraintLeft_toRightOf="@+id/create_iv_portrait"
+                app:layout_constraintRight_toLeftOf="@+id/create_edit_name"
+                app:layout_constraintTop_toTopOf="@id/create_edit_name" />
+
+            <EditText
+                android:id="@+id/create_edit_name"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="请输入姓名"
+                android:textSize="24sp"
+                android:maxLines="1"
+                app:layout_constraintBottom_toTopOf="@+id/create_edit_age"
+                app:layout_constraintLeft_toRightOf="@+id/create_hint_tv_name"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/create_iv_portrait" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年龄:"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/create_edit_age"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_name"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_name"
+                app:layout_constraintTop_toTopOf="@+id/create_edit_age" />
+
+            <TextView
+                android:id="@+id/create_edit_age"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="15"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_iv_portrait"
+                app:layout_constraintLeft_toRightOf="@+id/create_hint_tv_age"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_edit_name" />
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:text="注意:成功创建后，除了年龄、头像与属性，其他内容将无法修改。"
+                android:textColor="#F08080"
+                android:gravity="center_horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_portrait"
+                app:layout_constraintLeft_toLeftOf="@id/create_hint_tv_age"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_portrait" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="性别："
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@id/create_iv_portrait"
+                app:layout_constraintRight_toRightOf="@id/create_iv_portrait"
+                app:layout_constraintTop_toBottomOf="@+id/create_hint_tv_portrait" />
+
+            <RadioGroup
+                android:id="@+id/create_radio_group_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/create_hint_tv_gender"
+                app:layout_constraintLeft_toRightOf="@id/create_hint_tv_gender"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_gender">
+
+                <RadioButton
+                    android:id="@+id/create_radio_gender_btn_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="48dp"
+                    android:checked="true"
+                    android:textSize="24sp"
+                    android:text="男" />
+
+                <RadioButton
+                    android:id="@+id/create_radio_gender_btn_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:text="女" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="属性："
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_gender"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_gender"
+                app:layout_constraintTop_toBottomOf="@+id/create_hint_tv_gender" />
+
+            <Button
+                android:id="@+id/create_button_ability_auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="随机生成属性"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability"
+                app:layout_constraintLeft_toRightOf="@id/create_hint_tv_ability"
+                app:layout_constraintRight_toLeftOf="@id/create_button_ability_check_age_effect"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability" />
+
+            <Button
+                android:id="@+id/create_button_ability_check_age_effect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="查询年龄影响"
+                app:layout_constraintLeft_toRightOf="@id/create_button_ability_auto"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/create_button_ability_auto" />
+
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_str"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="力量/STR"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@id/create_button_ability_auto"
+                app:layout_constraintRight_toRightOf="@id/create_button_ability_auto"
+                app:layout_constraintTop_toBottomOf="@id/create_button_ability_auto" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_str"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_str"
+                app:layout_constraintLeft_toLeftOf="@id/create_button_ability_check_age_effect"
+                app:layout_constraintRight_toRightOf="@id/create_button_ability_check_age_effect"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_str" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_con"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="体质/CON"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_str" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_con"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_con"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_con" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_siz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="体型/SIZ"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_con" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_siz"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_siz"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_siz" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_dex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="敏捷/DEX"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_siz" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_dex"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_dex"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_dex" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="外貌/APP"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_dex" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_app"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_app"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_app" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_edu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="教育/EDU"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_app" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_edu"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_edu"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_edu" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_int"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="智力/INT"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_edu" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_int"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_int"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_int" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_pow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="意志/POW"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_int" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_pow"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_pow"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_pow" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_ability_luck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="幸运/LUCK"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_pow" />
+
+            <TextView
+                android:id="@+id/create_edit_ability_luck"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_ability_luck"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_ability_luck" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_total_ability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="总属性值(不含幸运)"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintRight_toRightOf="@+id/create_hint_tv_ability_str"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_ability_luck" />
+
+            <TextView
+                android:id="@+id/create_hint_tv_total_ability_number"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_total_ability"
+                app:layout_constraintLeft_toLeftOf="@+id/create_edit_ability_str"
+                app:layout_constraintRight_toRightOf="@id/create_edit_ability_str"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_total_ability" />
+
+
+            <TextView
+                android:id="@+id/create_hint_tv_profession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="职业："
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="@id/create_hint_tv_ability"
+                app:layout_constraintRight_toRightOf="@id/create_hint_tv_ability"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_total_ability" />
+
+            <TextView
+                android:id="@+id/create_tv_selected_profession"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="请选择职业"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_profession"
+                app:layout_constraintLeft_toRightOf="@id/create_hint_tv_profession"
+                app:layout_constraintRight_toLeftOf="@+id/create_button_profession_select"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_profession" />
+
+            <Button
+                android:id="@+id/create_button_profession_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="选择"
+                app:layout_constraintBottom_toBottomOf="@id/create_hint_tv_profession"
+                app:layout_constraintLeft_toRightOf="@id/create_tv_selected_profession"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/create_hint_tv_profession" />
+
+            <Button
+                android:id="@+id/create_button_finish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:onClick="onClick"
+                android:text="创建"
+                android:textSize="20dp"
+                app:layout_constraintTop_toBottomOf="@id/create_hint_tv_profession" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

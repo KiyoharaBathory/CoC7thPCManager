@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_pop_detail_dice"
+        android:title="呼叫骰娘" />
+    <item
+        android:id="@+id/menu_pop_detail_new_skill"
+        android:title="创建新技能(仅限此角色)"/>
+    <item
+        android:id="@+id/menu_pop_detail_share"
+        android:title="分享人物卡(纯文本)" />
+</menu>

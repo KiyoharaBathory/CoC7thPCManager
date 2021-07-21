@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/frag_basic_portrait_iv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:placeholderImage="@drawable/ic_baseline_portrait_24"
+                app:placeholderImageScaleType="fitCenter"
+                app:actualImageScaleType="fitCenter"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="20dp"
+                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="基本信息"
+                android:textColor="@color/btn"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginHorizontal="20dp"
+                android:background="@color/btn"
+                tools:ignore="ContentDescription" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/frag_basic_name_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="姓名"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_name_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_name_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_name_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_name_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="张三"
+                    android:textColor="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toRightOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/frag_basic_gender_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="性别"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_gender_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_gender_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_gender_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="男"
+                    android:textColor="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_name_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_age_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="年龄"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_age_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_age_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_age_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="24岁"
+                    android:textColor="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_gender_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_profession_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="职业"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_profession_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_profession_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_profession_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="学生"
+                    android:textColor="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_age_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_address_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="住址"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_address_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_address_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_address_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="请填写"
+                    android:textColor="@color/white"
+                    android:background="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_profession_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_family_background_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="出身"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_family_background_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_family_background_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_family_background_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="请填写"
+                    android:textColor="@color/white"
+                    android:background="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_name_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_name_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_address_tv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="属性信息"
+                android:textColor="@color/btn"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginHorizontal="20dp"
+                android:background="@color/btn"
+                tools:ignore="ContentDescription" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/frag_basic_hp_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="HP"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_hp_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_hp_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="0/0"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/frag_basic_mp_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="MP"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_mp_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_mp_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_mp_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="0/0"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_hp_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_san_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="理智"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_san_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_san_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_san_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="0/99"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_mp_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_stat_body_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="健康状态"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_stat_body_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_stat_body_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_stat_body_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="健康"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_san_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_stat_mental_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="理智状态"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_stat_mental_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_stat_mental_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_stat_mental_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="健康"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_stat_body_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_mov_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="移动力"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_mov_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_mov_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_mov_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_stat_mental_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_build_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="体格"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_build_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_build_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_build_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_mov_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_db_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="伤害加值"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_db_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_db_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_db_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_build_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_armor_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="护甲"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_armor_tv"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_hint_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_armor_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_armor_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_horizontal"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:background="@color/btn"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_hp_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_db_tv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginHorizontal="40dp"
+                android:background="@color/btn"
+                tools:ignore="ContentDescription" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/frag_basic_str_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="力量"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_str_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_str_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_str_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toRightOf="@id/frag_basic_str_hint_tv"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/frag_basic_con_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="体质"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_con_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_con_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_con_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_con_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_str_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_siz_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="体型"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_siz_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_siz_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_siz_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_siz_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_con_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_dex_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="敏捷"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_dex_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_dex_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_dex_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_dex_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_siz_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_app_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="外貌"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_app_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_app_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_app_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_app_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_dex_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_edu_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="教育"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_edu_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_edu_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_edu_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_edu_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_app_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_int_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="智力"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_int_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_int_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_int_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_int_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_edu_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_pow_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="意志"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_pow_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_pow_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_pow_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_pow_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_int_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_luck_hint_tv"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="幸运"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/frag_basic_luck_tv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/frag_basic_luck_tv"
+                    app:layout_constraintTop_toTopOf="@id/frag_basic_luck_tv" />
+
+                <TextView
+                    android:id="@+id/frag_basic_luck_tv"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/btn"
+                    android:gravity="center_horizontal"
+                    android:text="80 / 40 / 16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="@id/frag_basic_str_tv"
+                    app:layout_constraintRight_toRightOf="@id/frag_basic_str_tv"
+                    app:layout_constraintTop_toBottomOf="@id/frag_basic_pow_tv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

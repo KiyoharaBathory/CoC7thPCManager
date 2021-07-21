@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/item_profession_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="会计师"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/item_profession_majors"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_profession_majors"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="本职技能：会计，法律，图书馆，聆听，说服，侦查，任意其他两项个人或时代特长。"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_profession_name" />
+
+    <TextView
+        android:id="@+id/item_profession_skillpoint_measure_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="本职技能点："
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="@id/item_profession_skillpoint_measure"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/item_profession_skillpoint_measure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="EDU×4"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_profession_skillpoint_measure_hint" />
+
+    <TextView
+        android:id="@+id/item_profession_credit_range_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="信用评级："
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/item_profession_credit_range"
+        app:layout_constraintTop_toBottomOf="@+id/item_profession_skillpoint_measure_hint" />
+
+    <TextView
+        android:id="@+id/item_profession_credit_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="30~70"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_profession_credit_range_hint" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
