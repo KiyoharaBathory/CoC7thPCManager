@@ -43,6 +43,15 @@
 
 
             <TextView
+                android:layout_marginTop="30dp"
+                android:textSize="24sp"
+                android:text="CoC7th角色卡管理器\n版本:V0.31"
+                android:gravity="right"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
