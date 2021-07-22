@@ -94,9 +94,15 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
                     DBManager.insertCharacter(pc);
                     int tempId = DBManager.getCharacterIdByName(pc.getName());
                     SkillBean skillBean = new SkillBean();
-                    List<SkillBean> newSkillList = null;
+                    List<SkillBean> newSkillList = new ArrayList<>();
                     try {
                         newSkillList = skillBean.getNewSkillList(this, tempId);
+                        SkillBean dodge = newSkillList.get(25);
+                        SkillBean nativeLanguage = newSkillList.get(47);
+                        dodge.setInitValue(pc.getDexterity()/2);
+                        nativeLanguage.setInitValue(pc.getEducation());
+                        newSkillList.set(25,dodge);
+                        newSkillList.set(47,nativeLanguage);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

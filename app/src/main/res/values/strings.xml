@@ -3,4 +3,8 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="about">
+        CoC的同好们，你们好，我是Kiyohara。我是个CoC跑团爱好者，算不上资深玩家，Android也是刚开始，这么简陋的一个APP，我边学边做花了两个月，简直是蔡妈妈给蔡徐坤开门——蔡到家了。\n
+        所以我其实对这个APP是不抱什么期待的，肯定有大神做出了功能更强大、bug更少的同类型软件。不过应该不至于一个用的人都没有......应该不至于吧！
+    </string>
 </resources>

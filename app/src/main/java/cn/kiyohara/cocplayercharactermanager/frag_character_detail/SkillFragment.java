@@ -33,13 +33,12 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
     LinearLayout titleLayout;
     ImageView showHideTitle;
     ListView skillLv;
+    DetailActivity da;
     SkillListAdapter adapter;
-    PlayerCharacter pc;
     int pcId;
     int selectedPos;
     int maxCredit, minCredit;
     ProfessionBean profession;
-    List<SkillBean> skillList;
     SkillBean selected;
     boolean hideTitle = false;
 
@@ -52,18 +51,13 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_character_detail_skills, container, false);
-        pcId = ((DetailActivity) getActivity()).getPcId();
-        pc = DBManager.getCharacterById(pcId);
-        ProfessionBean bean = new ProfessionBean();
-        try {
-            profession = bean.baseProfessionLoader(getContext(), pc.getpId());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        da = (DetailActivity) getActivity();
+        pcId = da.pc.getId();
+        profession = da.professionBean;
         maxCredit = profession.getMaxCredit();
         minCredit = profession.getMinCredit();
-        skillList = DBManager.getAllSkillByCharacterId(pcId);
-        selected = skillList.get(0);
+        da.skillList = DBManager.getAllSkillByCharacterId(pcId);
+        selected = da.skillList.get(0);
         selectedPos = 0;
         initView(view);
         setLVListener();
@@ -74,7 +68,7 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
         skillLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selected = skillList.get(position);
+                selected = da.skillList.get(position);
                 selectedPos = position;
                 refreshTitleView();
                 if (hideTitle) {
@@ -90,8 +84,8 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
     }
 
     public void updateData() {
-        pc = DBManager.getCharacterById(pcId);
         refreshTitleView();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -143,7 +137,7 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
         showHideTitle = v.findViewById(R.id.frag_skills_hide_title);
         showHideTitle.setOnClickListener(this);
         skillLv = v.findViewById(R.id.frag_skills_list);
-        adapter = new SkillListAdapter(getContext(), skillList, pc);
+        adapter = new SkillListAdapter(getContext(), da.skillList, da.pc);
         skillLv.setAdapter(adapter);
         refreshTitleView();
     }
@@ -157,55 +151,55 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
         String algo = profession.getSkillPointAlgorithm();
         int initPP = 0;
         if (algo.equals("EDU×4")) {
-            initPP = pc.getEducation() * 4;
+            initPP = da.pc.getEducation() * 4;
         } else if (algo.equals("EDU×2+DEX×2")) {
-            initPP = (pc.getEducation() * 2) + (pc.getDexterity() * 2);
+            initPP = (da.pc.getEducation() * 2) + (da.pc.getDexterity() * 2);
         } else if (algo.equals("EDU×2+APP×2")) {
-            initPP = (pc.getEducation() * 2) + (pc.getAppearance() * 2);
+            initPP = (da.pc.getEducation() * 2) + (da.pc.getAppearance() * 2);
         } else if (algo.equals("EDU×2+STR/DEX×2")) {
-            if (pc.getStrength() > pc.getDexterity()) {
-                initPP = (pc.getEducation() * 2) + (pc.getStrength() * 2);
+            if (da.pc.getStrength() > da.pc.getDexterity()) {
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getStrength() * 2);
             } else {
-                initPP = (pc.getEducation() * 2) + (pc.getDexterity() * 2);
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getDexterity() * 2);
             }
         } else if (algo.equals("EDU×2+APP/POW×2")) {
-            if (pc.getAppearance() > pc.getWillPower()) {
-                initPP = (pc.getEducation() * 2) + (pc.getAppearance() * 2);
+            if (da.pc.getAppearance() > da.pc.getWillPower()) {
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getAppearance() * 2);
             } else {
-                initPP = (pc.getEducation() * 2) + (pc.getWillPower() * 2);
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getWillPower() * 2);
             }
         } else if (algo.equals("EDU×2+DEX/POW×2")) {
-            if (pc.getDexterity() > pc.getWillPower()) {
-                initPP = (pc.getEducation() * 2) + (pc.getDexterity() * 2);
+            if (da.pc.getDexterity() > da.pc.getWillPower()) {
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getDexterity() * 2);
             } else {
-                initPP = (pc.getEducation() * 2) + (pc.getWillPower() * 2);
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getWillPower() * 2);
             }
         } else if (algo.equals("EDU×2+STR×2")) {
-            initPP = (pc.getEducation() * 2) + (pc.getStrength() * 2);
+            initPP = (da.pc.getEducation() * 2) + (da.pc.getStrength() * 2);
         } else if (algo.equals("EDU×2+DEX/APP×2")) {
-            if (pc.getDexterity() > pc.getAppearance()) {
-                initPP = (pc.getEducation() * 2) + (pc.getDexterity() * 2);
+            if (da.pc.getDexterity() > da.pc.getAppearance()) {
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getDexterity() * 2);
             } else {
-                initPP = (pc.getEducation() * 2) + (pc.getAppearance() * 2);
+                initPP = (da.pc.getEducation() * 2) + (da.pc.getAppearance() * 2);
             }
         } else if (algo.equals("EDU×2+APP/DEX/STR×2")) {
-            int pp1 = (pc.getEducation() * 2) + (pc.getAppearance() * 2);
-            int pp2 = (pc.getEducation() * 2) + (pc.getDexterity() * 2);
-            int pp3 = (pc.getEducation() * 2) + (pc.getStrength() * 2);
+            int pp1 = (da.pc.getEducation() * 2) + (da.pc.getAppearance() * 2);
+            int pp2 = (da.pc.getEducation() * 2) + (da.pc.getDexterity() * 2);
+            int pp3 = (da.pc.getEducation() * 2) + (da.pc.getStrength() * 2);
             int pp4 = Math.max(pp1, pp2);
             initPP = Math.max(pp3, pp4);
         }
         int currentPP;
         int usedPP = 0;
-        for (int i = 0; i < skillList.size(); i++) {
-            usedPP = usedPP + skillList.get(i).getProfessionPoint();
+        for (int i = 0; i < da.skillList.size(); i++) {
+            usedPP = usedPP + da.skillList.get(i).getProfessionPoint();
         }
         currentPP = initPP - usedPP;
         professionPoint.setText("剩余本职点:" + currentPP + "，此技能:" + selected.getProfessionPoint());
-        int initIP = pc.getIntelligence() * 2;
+        int initIP = da.pc.getIntelligence() * 2;
         int usedIP = 0;
-        for (int i = 0; i < skillList.size(); i++) {
-            usedIP = usedIP + skillList.get(i).getInterestPoint();
+        for (int i = 0; i < da.skillList.size(); i++) {
+            usedIP = usedIP + da.skillList.get(i).getInterestPoint();
         }
         int currentIP = initIP - usedIP;
         interestPoint.setText("剩余兴趣点:" + currentIP + "，此技能:" + selected.getInterestPoint());
@@ -226,8 +220,9 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
             public void onEnsure(String custom, int initValue) {
                 selected.setCustomize(custom);
                 selected.setInitValue(initValue);
+                refreshTitleView();
                 DBManager.updateSkill(selected);
-                skillList.set(selectedPos, selected);
+                da.skillList.set(selectedPos, selected);
             }
         });
     }
@@ -250,11 +245,11 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
                     selected.setGrowthPoint(grow);
                 }
                 DBManager.updateSkill(selected);
-                skillList.set(selectedPos, selected);
+                da.skillList.set(selectedPos, selected);
                 refreshTitleView();
                 adapter.notifyDataSetChanged();
                 if (selected.getsId() == 34) {
-                    OthersFragment frag = ((DetailActivity) getActivity()).getOthersFragment();
+                    OthersFragment frag = da.getOthersFragment();
                     frag.setCreditBean(selected);
                 }
             }

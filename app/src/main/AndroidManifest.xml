@@ -10,11 +10,12 @@
     <application
         android:name=".UniteApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="CoC7th人物卡管理"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_app_icon"
+        android:label="CoC7th角色卡管理"
+        android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoCPlayerCharacterManager">
+        <activity android:name=".AboutActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +27,5 @@
         <activity android:name=".DetailActivity" />
         <activity android:name=".util.ProfessionSelectActivity" />
     </application>
-
 
 </manifest>
