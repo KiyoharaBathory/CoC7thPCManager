@@ -41,12 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         characterLv = findViewById(R.id.main_character_list);
         moreIv = findViewById(R.id.main_actionBar_iv_about);
         createBtn = findViewById(R.id.main_btn_new);
-        addLVHeaderView();
         adapter = new PCAdapter(this, mDatas);
         characterLv.setAdapter(adapter);
         setListViewListener();
         setListViewLongClickListener();
-        sp = this.getSharedPreferences("id",0);
+        sp = this.getSharedPreferences("id", 0);
         editor = sp.edit();
         Fresco.initialize(this);
     }
@@ -64,33 +63,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_actionBar_iv_about:
-                Toast.makeText(this, "更多功能康明宋", Toast.LENGTH_SHORT).show();
+                Intent intentAbout = new Intent(this, AboutActivity.class);
+                startActivity(intentAbout);
                 break;
             case R.id.main_btn_new:
                 Intent intentCreate = new Intent(this, CreateActivity.class);
                 startActivity(intentCreate);
                 break;
         }
-        if (v == headerView) {
-            Toast.makeText(this, "收藏夹功能,康明宋", Toast.LENGTH_SHORT).show();
-        }
     }
 
-    private void addLVHeaderView() {
-        headerView = getLayoutInflater().inflate(R.layout.item_main_list_top, null);
-        characterLv.addHeaderView(headerView);
-        headerView.setOnClickListener(this::onClick);
-    }
 
     private void setListViewLongClickListener() {
         characterLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    return false;
-                }
-                int pos = position - 1;
-                PlayerCharacter clickedPc = mDatas.get(pos);
+                PlayerCharacter clickedPc = mDatas.get(position);
                 showDeleteDialog(clickedPc);
                 return true;
             }
@@ -122,8 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         characterLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int selectedId = mDatas.get(position - 1).getId();
-                editor.putInt("idSelected",selectedId);
+                int selectedId = mDatas.get(position).getId();
+                editor.putInt("idSelected", selectedId);
                 editor.apply();
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 startActivity(intent);

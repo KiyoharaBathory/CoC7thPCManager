@@ -66,36 +66,48 @@ public class DiceDialog extends Dialog implements View.OnClickListener {
         his5 = findViewById(R.id.dialog_dice_history5);
         his5.setCharacterLists(TickerUtils.provideNumberList());
         setHistory();
-        mp = MediaPlayer.create(getContext(),R.raw.ylmsn);
+        mp = MediaPlayer.create(getContext(), R.raw.ylmsn);
+        mp.setLooping(true);
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.dialog_dice_roll) {
-            if (mp.isPlaying()){
-                mp.stop();
-            }
             String temp = String.valueOf(diceEt.getText());
             if (temp.equals("")) {
                 errorTv.setText("你朝桌面掷出了一团空气，这套假动作差点把骰娘都骗到了。");
                 errorTv.setVisibility(0);
+                if (mp.isPlaying()) {
+                    mp.pause();
+                }
             } else {
                 int dice = Integer.parseInt(temp);
                 if (dice < 1) {
                     errorTv.setText("你朝桌面掷出了一个点，它直接穿过桌面消失了，没人知道它去了哪里。");
                     errorTv.setVisibility(0);
+                    if (mp.isPlaying()) {
+                        mp.pause();
+                    }
                 } else if (dice == 1) {
                     ticker.setText("1");
                     errorTv.setText("你朝桌面掷出了一根棍子，骰娘也不知道你到底想干什么。");
                     errorTv.setVisibility(0);
+                    if (mp.isPlaying()) {
+                        mp.pause();
+                    }
                 } else if (dice == 114514) {
                     ticker.setText("114514");
                     errorTv.setText("你居然往桌面上扔了一坨**......\n骰娘要被熏晕了。");
                     errorTv.setVisibility(0);
-                    mp.start();
+                    if (!mp.isPlaying()) {
+                        mp.start();
+                    }
                 } else if (dice > 1000000) {
                     errorTv.setText("你朝桌面掷出了一个写满数字的球，它骨碌骨碌滚动着，根本没有停下的意思。");
                     errorTv.setVisibility(0);
+                    if (mp.isPlaying()) {
+                        mp.pause();
+                    }
                 } else {
                     errorTv.setVisibility(8);
                     Random random = new Random();
@@ -120,6 +132,9 @@ public class DiceDialog extends Dialog implements View.OnClickListener {
                         saveDiceHistory();
                         setHistory();
                         timeOfSame = 1;
+                    }
+                    if (mp.isPlaying()) {
+                        mp.pause();
                     }
                     ticker.setText(result + "");
 
