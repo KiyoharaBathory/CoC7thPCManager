@@ -1,2 +1,2 @@
-# CoCPlayerCharacterManager
- 在学习Android过程中尝试做的一个克苏鲁的呼唤7th角色卡管理app
+# CoC7thPCManager
+ 在学习Android过程中尝试为TRPG克苏鲁的呼唤7th做的一个角色卡管理app
