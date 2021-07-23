@@ -185,9 +185,9 @@ public class BasicFragment extends Fragment implements View.OnClickListener {
 
     private void showAgeEditDialog() {
         AgeEditDialog dialog = new AgeEditDialog(getContext());
-        dialog.setAgeEtNumber(da.pc.getAge());
         dialog.show();
         dialog.setDialogSize();
+        dialog.setAgeEtNumber(da.pc.getAge());
         dialog.setOnEnsureListener(new AgeEditDialog.OnEnsureListener() {
             @Override
             public void onEnsure(int ageNumber) {
