@@ -33,6 +33,7 @@ import cn.kiyohara.cocplayercharactermanager.frag_character_detail.BasicFragment
 import cn.kiyohara.cocplayercharactermanager.frag_character_detail.OthersFragment;
 import cn.kiyohara.cocplayercharactermanager.frag_character_detail.SkillFragment;
 import cn.kiyohara.cocplayercharactermanager.util.DiceDialog;
+import cn.kiyohara.cocplayercharactermanager.util.NewSkillDialog;
 import cn.kiyohara.cocplayercharactermanager.util.SkillCustomizeDialog;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
@@ -122,6 +123,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                                 showDiceDialog();
                                 break;
                             case R.id.menu_pop_detail_new_skill:
+                                showNewSkillDialog();
                                 break;
                             case R.id.menu_pop_detail_share:
                                 getPCInTextForm();
@@ -133,6 +135,22 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 popMenu.show();
                 break;
         }
+    }
+
+    private void showNewSkillDialog() {
+        NewSkillDialog nsDialog = new NewSkillDialog(this);
+        nsDialog.show();
+        nsDialog.setDialogSize();
+        nsDialog.setOnEnsureListener(new NewSkillDialog.OnEnsureListener() {
+            @Override
+            public void onEnsure(SkillBean bean) {
+                bean.setPlayerId(pc.getId());
+                bean.setsId(skillList.size() + 1);
+                DBManager.insertSkill(bean);
+                skillList.add(bean);
+                skillFragment.adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void showDiceDialog() {
@@ -255,7 +273,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         sb.append(line);
         line = "\n=====技能信息=====";
         sb.append(line);
-        line = "\n(仅列出技能值不等于初始值的技能)";
+        line = "\n(只列出非初始状态的技能和非常规技能)";
         sb.append(line);
         for (int i = 0; i < skillList.size(); i++) {
             SkillBean bean = skillList.get(i);

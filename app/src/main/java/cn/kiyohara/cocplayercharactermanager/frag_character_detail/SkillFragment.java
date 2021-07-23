@@ -34,7 +34,7 @@ public class SkillFragment extends Fragment implements View.OnClickListener {
     ImageView showHideTitle;
     ListView skillLv;
     DetailActivity da;
-    SkillListAdapter adapter;
+    public SkillListAdapter adapter;
     int pcId;
     int selectedPos;
     int maxCredit, minCredit;

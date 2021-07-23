@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="创建新技能"
+        android:textSize="30sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dialog_new_skill_sName_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="技能名:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_new_skill_sName_et"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/dialog_new_skill_sName_et"
+            app:layout_constraintTop_toTopOf="@id/dialog_new_skill_sName_et" />
+
+        <EditText
+            android:id="@+id/dialog_new_skill_sName_et"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="必填"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/dialog_new_skill_custom_et"
+            app:layout_constraintLeft_toRightOf="@id/dialog_new_skill_sName_hint"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialog_new_skill_custom_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="技能专攻:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_new_skill_custom_et"
+            app:layout_constraintLeft_toLeftOf="@id/dialog_new_skill_sName_hint"
+            app:layout_constraintRight_toRightOf="@id/dialog_new_skill_sName_hint"
+            app:layout_constraintTop_toTopOf="@id/dialog_new_skill_custom_et" />
+
+        <EditText
+            android:id="@+id/dialog_new_skill_custom_et"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="非必填"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/dialog_new_skill_init_et"
+            app:layout_constraintLeft_toLeftOf="@id/dialog_new_skill_sName_et"
+            app:layout_constraintRight_toRightOf="@id/dialog_new_skill_sName_et"
+            app:layout_constraintTop_toBottomOf="@id/dialog_new_skill_sName_et" />
+
+        <TextView
+            android:id="@+id/dialog_new_skill_init_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="初始值:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_new_skill_init_et"
+            app:layout_constraintLeft_toLeftOf="@id/dialog_new_skill_sName_hint"
+            app:layout_constraintRight_toRightOf="@id/dialog_new_skill_sName_hint"
+            app:layout_constraintTop_toTopOf="@id/dialog_new_skill_init_et" />
+
+        <EditText
+            android:id="@+id/dialog_new_skill_init_et"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:hint="必填"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/dialog_new_skill_sName_et"
+            app:layout_constraintRight_toRightOf="@id/dialog_new_skill_sName_et"
+            app:layout_constraintTop_toBottomOf="@id/dialog_new_skill_custom_et" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:text="※在需要创建非常规技能时，请事先查阅规则书确定其初始值，或同KP沟通确认。\n※此功能创建的技能仅限当前调查员可用。\n※技能创建成功后将无法单独删除。"
+        android:textColor="#F08080"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/dialog_new_skill_ensure"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/btn_rect_solid"
+        android:src="@drawable/ic_check" />
+</LinearLayout>

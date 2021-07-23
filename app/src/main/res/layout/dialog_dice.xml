@@ -44,13 +44,9 @@
         android:gravity="center"
         android:text="0"
         android:textSize="64sp"
+        android:layout_marginVertical="10dp"
         app:ticker_defaultPreferredScrollingDirection="down" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="40dp"
-        android:background="@color/btn" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

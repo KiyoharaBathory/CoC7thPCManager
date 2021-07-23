@@ -10,8 +10,8 @@ android {
         applicationId "cn.kiyohara.cocplayercharactermanager"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 3
-        versionName "0.31"
+        versionCode 4
+        versionName "1.00"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -19,6 +19,9 @@ public class SkillBean {
     String customize, sName;
 
     public SkillBean() {
+        interestPoint = 0;
+        growthPoint = 0;
+        professionPoint = 0;
     }
 
     public List<SkillBean> getNewSkillList(Context context, int playerId) throws Exception {
