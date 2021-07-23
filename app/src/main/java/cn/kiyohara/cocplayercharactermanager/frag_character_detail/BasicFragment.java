@@ -25,6 +25,7 @@ import cn.kiyohara.cocplayercharactermanager.db.DBManager;
 import cn.kiyohara.cocplayercharactermanager.db.character.ProfessionBean;
 import cn.kiyohara.cocplayercharactermanager.db.character.SkillBean;
 import cn.kiyohara.cocplayercharactermanager.util.AbilityEditDialog;
+import cn.kiyohara.cocplayercharactermanager.util.AgeEditDialog;
 import cn.kiyohara.cocplayercharactermanager.util.NormalNumberEditDialog;
 import cn.kiyohara.cocplayercharactermanager.util.StatSetDialog;
 import cn.kiyohara.cocplayercharactermanager.util.TextEditDialog;
@@ -71,6 +72,9 @@ public class BasicFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.frag_basic_age_tv:
+                showAgeEditDialog();
+                break;
             case R.id.frag_basic_str_tv:
                 showAbilityEditDialog("力量", da.pc.getStrength());
                 break;
@@ -175,6 +179,21 @@ public class BasicFragment extends Fragment implements View.OnClickListener {
                     }
                 }
                 DBManager.updateCharacter(da.pc);
+            }
+        });
+    }
+
+    private void showAgeEditDialog() {
+        AgeEditDialog dialog = new AgeEditDialog(getContext());
+        dialog.setAgeEtNumber(da.pc.getAge());
+        dialog.show();
+        dialog.setDialogSize();
+        dialog.setOnEnsureListener(new AgeEditDialog.OnEnsureListener() {
+            @Override
+            public void onEnsure(int ageNumber) {
+                da.pc.setAge(ageNumber);
+                DBManager.updateCharacter(da.pc);
+                ageTv.setText(ageNumber + "岁");
             }
         });
     }
@@ -319,7 +338,8 @@ public class BasicFragment extends Fragment implements View.OnClickListener {
         nameTv = v.findViewById(R.id.frag_basic_name_tv);
         nameTv.setText(da.pc.getName());
         ageTv = v.findViewById(R.id.frag_basic_age_tv);
-        ageTv.setText(da.pc.getAge() + "");
+        ageTv.setText(da.pc.getAge() + "岁");
+        ageTv.setOnClickListener(this);
         genderTv = v.findViewById(R.id.frag_basic_gender_tv);
         if (da.pc.getGender() == 1) {
             genderTv.setText("男");

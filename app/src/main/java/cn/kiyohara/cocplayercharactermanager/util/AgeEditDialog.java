@@ -28,6 +28,10 @@ public class AgeEditDialog extends Dialog implements View.OnClickListener {
         super(context);
     }
 
+    public void setAgeEtNumber(int age){
+        ageEt.setText(age+"");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
